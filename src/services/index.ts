@@ -27,7 +27,7 @@ class WeatherAPI {
           const {data} = weather.value;
           const weatherArea: WeatherArea = {
             woeid: data.woeid,
-            title: data.city,
+            city: data.title,
             weatherList: data.consolidated_weather
           }
           return weatherArea;

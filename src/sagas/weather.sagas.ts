@@ -18,7 +18,7 @@ function* searchPlace(action: getCityAction) {
     } else {
       yield put(getWeatherSuccess(([])));
     }
-  } catch(e) {
-    yield put(getWeatherFail((e as Error).message));
+  } catch(_) {
+    yield put(getWeatherFail('Sorry buggy'));
   }
 }

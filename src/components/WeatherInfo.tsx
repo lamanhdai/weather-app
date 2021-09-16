@@ -5,7 +5,7 @@ import {Weather} from 'models/weather';
 import {WeatherIcon, WindIcon, WeatherInfoWrapper} from './WeatherInfo.styled';
 import {ThemeProvider} from 'styled-components';
 
-interface WeatherInfoProps {
+export interface WeatherInfoProps {
 	info: Weather
 }
 function WeatherInfo(props: WeatherInfoProps) {

@@ -17,6 +17,6 @@ export interface Weather {
 
 export interface WeatherArea {
   weatherList: Weather[],
-  title: string,
+  city: string,
   woeid: string
 }

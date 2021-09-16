@@ -8,7 +8,7 @@ import store from 'store'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const initStore = store({weatherListByCity: [], err: ''});
+const initStore = store({weatherListByCity: [], err: '', loading: false});
 
 ReactDOM.render(
   <Provider store={initStore}>

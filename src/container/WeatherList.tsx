@@ -1,48 +1,74 @@
 import React from 'react';
-import {Container, Row, Col} from 'react-bootstrap';
+import {Container, Row, Col, Spinner} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
+import { InView } from 'react-intersection-observer';
 
 import {WeatherArea} from 'models/weather';
-import WeatherItem from 'components/WeatherItem';
+import WeatherInfo from 'components/WeatherInfo';
 import Search from 'components/Search';
 import {WeatherState} from 'store/reducers';
 import {AppActions, getWeatherRequest} from 'store/actions';
+
 
 interface WeatherListProps {
   weatherListByCity: WeatherArea[]
   err: string
   onSearch: (keyword: string) => void
+  loading: boolean
 }
 
 function WeatherList (props: WeatherListProps) {
-  const {onSearch, weatherListByCity, err} = props;
+  const {onSearch, weatherListByCity, err, loading} = props;
+  const renderWeather = (list: WeatherArea[]) => {
+    return list&&list.length?list.map(weatherArea => (
+      <InView key={weatherArea.woeid}>
+        {({ ref }) => (
+          <div className="mt-5" ref={ref}>
+            <h2>City: {weatherArea.city}</h2>
+            <Row className="mt-2" >
+              {
+                weatherArea.weatherList.map(weather => (
+                  <Col key={weather.id}><WeatherInfo info={weather} /></Col>
+                ))
+              }
+            </Row>
+          </div>
+        )}
+        </InView>
+      )):<div className="text-center mt-5">Oops ! no result</div>
+    
+  }
+
+  const renderSpinner = () => {
+    return <div className="text-center mt-5">
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    </div>
+  }
   return (
     <Container className="mt-5">
-      <Search onSearch={onSearch} />
-      {
-        weatherListByCity.map(weatherArea => (
-          <Row className="mt-5" key={weatherArea.woeid}>
-            {
-              weatherArea.weatherList.map(weather => (
-                <Col key={weather.id}><WeatherItem info={weather} /></Col>
-              ))
-            }
-          </Row>
-        ))
-      }
-      {
-        err&&<div>{err}</div>
-      }
+        <Search onSearch={onSearch} />
+        {
+          loading?
+          renderSpinner()
+          :
+          renderWeather(weatherListByCity)
+        }
+        {
+          err&&<div>{err}</div>
+        }
     </Container>
   )
 }
 
 function mapStateToProp(state: WeatherState) {
-  const {weatherListByCity, err} = state;
+  const {weatherListByCity, err, loading} = state;
   return {
     weatherListByCity,
-    err
+    err,
+    loading
   }
 }
 
