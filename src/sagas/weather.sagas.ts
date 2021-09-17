@@ -3,7 +3,8 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import services from 'services';
 import {City} from 'models/city';
 import {WeatherArea} from 'models/weather';
-import { getWeatherSuccess,getWeatherFail, getCityAction, GET_WEATHER_REQUEST } from 'store/actions';
+import { getCityAction, GET_WEATHER_REQUEST } from 'store/actions.type';
+import { getWeatherSuccess,getWeatherFail } from 'store/actions.creator';
 
 export default function* searchWeatherRequest() {
   yield takeEvery(GET_WEATHER_REQUEST, searchPlace);

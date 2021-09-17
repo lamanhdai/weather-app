@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeatherList render weather list no store 1`] = `
+<div
+  className="mt-5 container"
+>
+  <div
+    className="mt-5"
+  >
+    <form
+      className=""
+      onSubmit={[Function]}
+    >
+      <div
+        className="form-group form-group"
+      >
+        <input
+          aria-describedby="search"
+          className="form-control"
+          placeholder="Search a location"
+          required={true}
+          role="search"
+          type="text"
+        />
+      </div>
+    </form>
+  </div>
+  <div
+    className="text-center mt-5"
+  >
+    Oops ! no result
+  </div>
+  
+</div>
+`;
+
+exports[`WeatherList render weather list with store 1`] = `
+<div
+  className="mt-5 container"
+>
+  <div
+    className="mt-5"
+  >
+    <form
+      className=""
+      onSubmit={[Function]}
+    >
+      <div
+        className="form-group form-group"
+      >
+        <input
+          aria-describedby="search"
+          className="form-control"
+          placeholder="Search a location"
+          required={true}
+          role="search"
+          type="text"
+        />
+      </div>
+    </form>
+  </div>
+  <div
+    className="text-center mt-5"
+  >
+    Oops ! no result
+  </div>
+  
+</div>
+`;

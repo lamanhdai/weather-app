@@ -24,7 +24,7 @@ function Search(props:SearchProps) {
     <div className="mt-5">
       <Form onSubmit={handleSubmit}>
         <Form.Group className="form-group">
-          <FormControl type="text" aria-describedby="search" placeholder="Search" ref={searchRef} required />
+          <FormControl type="text" aria-describedby="search" role="search" placeholder="Search a location" ref={searchRef} required />
         </Form.Group>
       </Form>
     </div>

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeatherInfo render weather element 1`] = `
+<div
+  className="sc-dlfnuX dcvreJ mt-4 h-100 d-flex flex-column"
+>
+  <h5>
+    Invalid date
+  </h5>
+  <div
+    className="mt-auto text-center"
+  >
+    <div>
+      <span
+        className="sc-bdfBQB cgoigE"
+      />
+    </div>
+    <span>
+      
+    </span>
+  </div>
+  <div
+    className="mt-4"
+  >
+    <strong>
+      Temp
+    </strong>
+    <p>
+      Max: 
+      0
+      °C
+    </p>
+    <p>
+      Min: 
+      0
+      °C
+    </p>
+  </div>
+  <div>
+    <span
+      className="sc-gsTEea eFzlKo"
+    />
+    0
+    mph
+  </div>
+</div>
+`;

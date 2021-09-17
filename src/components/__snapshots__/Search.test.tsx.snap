@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search search element 1`] = `
+<div
+  className="mt-5"
+>
+  <form
+    className=""
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-group form-group"
+    >
+      <input
+        aria-describedby="search"
+        className="form-control"
+        placeholder="Search a location"
+        required={true}
+        role="search"
+        type="text"
+      />
+    </div>
+  </form>
+</div>
+`;

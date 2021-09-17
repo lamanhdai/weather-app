@@ -8,7 +8,8 @@ import {WeatherArea} from 'models/weather';
 import WeatherInfo from 'components/WeatherInfo';
 import Search from 'components/Search';
 import {WeatherState} from 'store/reducers';
-import {AppActions, getWeatherRequest} from 'store/actions';
+import {AppActions} from 'store/actions.type';
+import {getWeatherRequest} from 'store/actions.creator';
 
 
 interface WeatherListProps {
@@ -18,7 +19,7 @@ interface WeatherListProps {
   loading: boolean
 }
 
-function WeatherList (props: WeatherListProps) {
+export function WeatherList (props: WeatherListProps) {
   const {onSearch, weatherListByCity, err, loading} = props;
   const renderWeather = (list: WeatherArea[]) => {
     return list&&list.length?list.map(weatherArea => (

@@ -1,6 +1,6 @@
 import {WeatherArea} from 'models/weather';
-import {AppActions} from './actions';
-import {GET_WEATHER_REQUEST, GET_WEATHER_SUCCESS, GET_WEATHER_FAIL} from './actions';
+import {AppActions} from './actions.type';
+import {GET_WEATHER_REQUEST, GET_WEATHER_SUCCESS, GET_WEATHER_FAIL} from './actions.type';
 
 export interface WeatherState {
   weatherListByCity: WeatherArea[]

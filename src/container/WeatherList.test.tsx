@@ -1,21 +1,50 @@
 import React from 'react';
-import { shallow, configure } from 'enzyme';
+import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
+import { Provider } from 'react-redux';
 
 import {WeatherArea} from 'models/weather';
+import configureStore from 'redux-mock-store';
 
 configure({adapter: new Adapter()});
 
-import WeatherList from './WeatherList';
+import {WeatherList, default as ConnectWeatherList} from './WeatherList';
 
-test('<WeatherList /> component Unit Test', () => {
+describe('WeatherList', () => {
   const props = {
     weatherListByCity: [],
     err: '',
     onSearch: () => {},
     loading: false
   }
-  // const wrapper = shallow(<WeatherList weatherListByCity={[]} err={''}  onSearch={() => {}} loading={false} />);
 
-  // expect(wrapper.exists()).toEqual(true);
+  it('render weather list no store', () => {
+    const WeatherListElment = renderer
+      .create(
+          <WeatherList {...props} />
+      )
+      .toJSON();
+
+    expect(WeatherListElment).toMatchSnapshot();
+  });
+
+  it('render weather list with store', () => {
+    const mockStore = configureStore([]);
+    const store = mockStore({
+      weatherListByCity: [],
+      err: '',
+      loading: false
+    });
+
+    const WeatherListElment = renderer
+      .create(
+        <Provider store={store}>
+          <ConnectWeatherList {...props} />
+        </Provider>
+      )
+      .toJSON();
+
+    expect(WeatherListElment).toMatchSnapshot();
+  })
 });
