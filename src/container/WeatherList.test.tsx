@@ -4,7 +4,6 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 
-import {WeatherArea} from 'models/weather';
 import configureStore from 'redux-mock-store';
 
 configure({adapter: new Adapter()});
