@@ -4,22 +4,31 @@ import {
   FormControl
 } from 'react-bootstrap';
 
+import {debounce} from '../core/utils';
+
 interface SearchProps {
   onSearch: (keyword: string) => void
 }
 
 function Search(props:SearchProps) {
   const searchRef = useRef<HTMLInputElement>(null);
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     const form = event.currentTarget;
     event.preventDefault();
     if (form.checkValidity() === false) {
       return;
     }
+    debounced()
+  }
+  const debounced = debounce(() => {
+    console.log('test')
     if(searchRef.current) {
       props.onSearch(searchRef.current.value)
     }
-  };
+  }, 3000);
+
+
   return (
     <div className="mt-5">
       <Form onSubmit={handleSubmit}>
